@@ -11,6 +11,10 @@ urlpatterns = [
     path('adminhome',views.adminhome,name='adminhome'),
     path('customerhome',views.customerhome,name='customerhome'),
     path('deliveryboyhome',views.deliveryboyhome,name='deliveryboyhome'),
+    path('add-fuel-station/', views.add_fuel_station, name='add_fuel_station'),
+    path('fuel-stations/', views.fuel_station_list, name='fuel_station_list'),
+    path('viewusers/', views.viewusers, name='viewusers'),
+
 
 
 

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuel Stations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f9;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: #2c3e50;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background: #1abc9c;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 12px;
+            color: white;
+            background: #3498db;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Fuel Stations</h2>
+
+        {% if stations %}
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Fuel Price</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+                {% for station in stations %}
+                <tr>
+                    <td>{{ station.name }}</td>
+                    <td>{{ station.location }}</td>
+                    <td>₹{{ station.fuel_price }}</td>
+                    <td>{% if station.is_open %} Open {% else %} Closed {% endif %}</td>
+                    <td>
+                        {% comment %} <a href="{% url 'book_fuel' station.id %}" class="btn">Book Fuel</a> {% endcomment %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>No fuel stations available.</p>
+        {% endif %}
+
+        <br>
+        <a href="{% url 'add_fuel_station' %}" class="btn">Add Fuel Station</a>
+    </div>
+
+</body>
+</html>

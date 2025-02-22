@@ -32,3 +32,15 @@ class DeliveryBoyRegistrationForm(forms.ModelForm):
         widgets = {
             'password': forms.PasswordInput()
         }
+
+
+
+
+
+from django import forms
+from .models import FuelStation
+
+class FuelStationForm(forms.ModelForm):
+    class Meta:
+        model = FuelStation
+        fields = ['name', 'location', 'latitude', 'longitude', 'fuel_price', 'available_fuels', 'is_open']

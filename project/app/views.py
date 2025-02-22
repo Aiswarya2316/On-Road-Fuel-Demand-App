@@ -106,3 +106,42 @@ def deliveryboyhome(request):
     return render(request,'deliveryboy/deliveryboyhome.html')
 
 
+
+
+
+
+
+
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from .forms import FuelStationForm
+from .models import FuelStation
+
+def add_fuel_station(request):
+    if request.method == "POST":
+        form = FuelStationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Fuel station added successfully!")
+            return redirect('fuel_station_list')
+    else:
+        form = FuelStationForm()
+    return render(request, 'admin/add_fuel_station.html', {'form': form})
+
+
+
+
+
+def fuel_station_list(request):
+    """View to list all fuel stations"""
+    stations = FuelStation.objects.all()
+    return render(request, 'admin/fuel_station_list.html', {'stations': stations})
+
+
+
+
+
+
+def viewusers(request):
+    usrs=Customer.objects.all()
+    return render(request,'admin/viewusers.html',{'usrs':usrs})

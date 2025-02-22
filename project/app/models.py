@@ -57,7 +57,7 @@ class FuelStation(models.Model):
         return self.name
 
 class Booking(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     fuel_station = models.ForeignKey(FuelStation, on_delete=models.CASCADE)
     fuel_type = models.CharField(max_length=50)
     amount = models.DecimalField(max_digits=7, decimal_places=2)
@@ -68,7 +68,7 @@ class Booking(models.Model):
         return f"{self.user.username} - {self.fuel_type} - {self.amount}"
 
 class FuelConsumption(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     distance_covered = models.DecimalField(max_digits=6, decimal_places=2)
     fuel_used = models.DecimalField(max_digits=5, decimal_places=2)
     trip_date = models.DateField(auto_now_add=True)
@@ -77,7 +77,7 @@ class FuelConsumption(models.Model):
         return f"{self.user.username} - {self.distance_covered} km"
 
 class Notification(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     message = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     is_read = models.BooleanField(default=False)
