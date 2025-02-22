@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #1abc9c, #16a085);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 400px;
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .msg {
+            color: red;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        input:focus, select:focus {
+            border-color: #1abc9c;
+            outline: none;
+            box-shadow: 0 0 5px rgba(26, 188, 156, 0.5);
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #1abc9c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background: #16a085;
+            transform: scale(1.02);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                width: 100%;
+                padding: 25px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            input, select {
+                font-size: 14px;
+            }
+
+            button {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>{{ title }}</h2>
+        {% if messages %}
+            {% for message in messages %}
+                <p class="msg">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+        <form method="POST" action="{% url 'user_login' %}">
+            {% csrf_token %}
+            
+            <input type="email" name="email" placeholder="Email Address" required>
+        
+            <input type="password" name="password" placeholder="Password" required>
+        
+            <select name="user_type" required>
+                <option value="" disabled selected>Select User Type</option>
+                <option value="customer">Customer</option>
+                <option value="staff">Staff</option>
+                <option value="admin">Admin</option>
+                <option value="deliveryboy">Delivery Boy</option>
+            </select>
+        
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+</body>
+</html>

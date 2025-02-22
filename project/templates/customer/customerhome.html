@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #f4f4f9;
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            width: 100%;
+            background: #2c3e50;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar .logo {
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin: 0 15px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .navbar ul li a:hover {
+            color: #1abc9c;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: url('https://source.unsplash.com/1600x900/?shopping,store') no-repeat center;
+            background-size: cover;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #1abc9c;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #16a085;
+        }
+
+        /* Featured Products */
+        .products {
+            max-width: 1100px;
+            margin: auto;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .products h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .product {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .product h3 {
+            margin: 10px 0;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: #ecf0f1;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial {
+            max-width: 700px;
+            margin: auto;
+            font-style: italic;
+            color: #555;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+            }
+            .navbar ul {
+                margin-top: 10px;
+            }
+            .navbar ul li {
+                margin: 5px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">On Road Fuel Demand</div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">Cart</a></li>
+            <li><a href="#">Orders</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Welcome to Jersey Craft</h1>
+        <p>Get your customized jerseys with high-quality prints and fabrics</p>
+        <a href="#" class="btn">Shop Now</a>
+    </div>
+
+    <!-- Featured Products -->
+    <div class="products">
+        <h2>Featured Products</h2>
+        <div class="product-list">
+            <div class="product">
+                <img src="https://source.unsplash.com/300x200/?jersey,sports" alt="Jersey">
+                <h3>Custom Football Jersey</h3>
+                <p>$49.99</p>
+            </div>
+            <div class="product">
+                <img src="https://source.unsplash.com/300x200/?basketball,jersey" alt="Jersey">
+                <h3>Basketball Jersey</h3>
+                <p>$39.99</p>
+            </div>
+            <div class="product">
+                <img src="https://source.unsplash.com/300x200/?sports,clothing" alt="Jersey">
+                <h3>Training Kit</h3>
+                <p>$29.99</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="testimonials">
+        <h2>What Our Customers Say</h2>
+        <p class="testimonial">"Jersey Craft provides the best quality jerseys. Customization is amazing!" - John Doe</p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>© 2025 Jersey Craft. All Rights Reserved.</p>
+    </div>
+
+</body>
+</html>

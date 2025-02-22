@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On-Road Fuel Demand App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /* Full-screen background image */
+        .background {
+            background: url('../static/Petrol-Diesel-Pump-1160x773.jpg') no-repeat center center/cover;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Overlay for better readability */
+        .background::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            background: rgba(26, 188, 156, 0.95);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .navbar ul li {
+            display: inline;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 17px;
+            padding: 12px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .navbar ul li a:hover {
+            background: #16a085;
+            transform: scale(1.1);
+        }
+
+        /* Centered Content */
+        .main-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 20px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .main-content h1 {
+            font-size: 50px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .main-content p {
+            font-size: 22px;
+            margin-bottom: 40px;
+            max-width: 600px;
+            line-height: 1.5;
+        }
+
+        /* Get Started Button */
+        .get-started a {
+            text-decoration: none;
+            background: #f39c12;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 15px 35px;
+            border-radius: 50px;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+        }
+
+        .get-started a:hover {
+            background: #e67e22;
+            transform: scale(1.1);
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-content h1 {
+                font-size: 36px;
+            }
+
+            .main-content p {
+                font-size: 18px;
+            }
+
+            .get-started a {
+                font-size: 18px;
+                padding: 12px 30px;
+            }
+
+            .navbar ul {
+                gap: 15px;
+            }
+
+            .navbar ul li a {
+                font-size: 15px;
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="../registeradmin">Admin</a></li>
+            <li><a href="../registerstaf">Staff</a></li>
+            <li><a href="../registercustomer">Customer</a></li>
+            <li><a href="../registerdeliveryboy">Delivery Boy</a></li>
+        </ul>
+    </nav>
+
+    <!-- Full-screen background with content -->
+    <div class="background">
+        <div class="main-content">
+            <h1>Welcome to On-Road Fuel Demand App</h1>
+            <p>Find fuel stations, manage expenses, and optimize routes with ease.</p>
+            <div class="get-started">
+                <a href="../login">Get Started</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
